@@ -1,0 +1,25 @@
+.first {
+    &__wrapper {
+        width: 100vw;
+        height: 100vh;
+        background: linear-gradient(50deg, #050505 50%, #753190);
+        color: white;
+        display: flex;
+        align-items: center;
+    }
+    &__content_wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+    &__left_side {
+        width: 600px;
+        align-items: center;
+        & .sub_title {
+            margin-top: 12px;
+            opacity: 0.5;
+        }
+    }
+}
