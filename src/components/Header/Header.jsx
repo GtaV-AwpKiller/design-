@@ -11,10 +11,14 @@ export default function Header() {
                 <div
                     className={`main__wrapper ${styles.header__content_wrapper}`}
                 >
-                    <div className={styles.header_logo}>LOGO</div>
+                    <a id="#" href="/" className={styles.header_logo}>
+                        LOGO
+                    </a>
                     <ul className={styles.header__menu_nav}>
                         {headerItem.map((item) => (
-                            <li className={styles.menu__item}>{item.title}</li>
+                            <li className={styles.menu__item}>
+                                <a href="#">{item.title}</a>
+                            </li>
                         ))}
                     </ul>
                     <div className={styles.header__theme}> theme </div>
