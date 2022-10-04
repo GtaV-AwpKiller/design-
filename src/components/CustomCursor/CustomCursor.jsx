@@ -1,10 +1,32 @@
-import { toBeInTheDocument } from "@testing-library/jest-dom/dist/matchers";
 import React, { useEffect, useRef } from "react";
 import styles from "./CustomCursor.module.scss";
 
 export default function CustomCursor() {
     const mainCursor = useRef(null);
     const secondaryCursor = useRef(null);
+
+    const parentCursor = useRef(null);
+    const bgMainCursor = useRef(null);
+    const bgSecondaryCursor = useRef(null);
+
+    bgMainCursor.current.style.transition = "all .4s ease 0s";
+
+    const hoverLinks = () => {
+        const links = document.getElementsByTagName("a");
+        for (let i = 0; i < links.length; i++) {
+            links[i].addEventListener("mouseover", () => {
+                console.log("over");
+                bgMainCursor.current.style.transform = "scale(2)";
+
+                return;
+            });
+            links[i].addEventListener("mouseleave", () => {
+                console.log("leave");
+                bgMainCursor.current.style.transform = "scale(1)";
+                return;
+            });
+        }
+    };
 
     const positionRef = useRef({
         mouseX: 0,
@@ -15,6 +37,25 @@ export default function CustomCursor() {
         distY: 0,
         key: -1,
     });
+
+    useEffect(() => {
+        hoverLinks();
+
+        document.body.addEventListener("mouseout", () => {
+            mainCursor.current.classList.add(`${styles.opacity}`);
+            secondaryCursor.current.classList.add(`${styles.opacity}`);
+        });
+
+        document.body.addEventListener("mousemove", () => {
+            mainCursor.current.classList.remove(`${styles.opacity}`);
+            secondaryCursor.current.classList.remove(`${styles.opacity}`);
+        });
+
+        document.body.addEventListener("mouseenter", () => {
+            mainCursor.current.classList.remove(`${styles.opacity}`);
+            secondaryCursor.current.classList.remove(`${styles.opacity}`);
+        });
+    }, []);
 
     //position
     useEffect(() => {
@@ -71,12 +112,22 @@ export default function CustomCursor() {
     }, []);
 
     return (
-        <>
-            <div className={styles.main_cursor} ref={mainCursor}></div>
+        <div className={styles.cursor_wrapper} ref={parentCursor}>
+            <div className={styles.main_cursor} ref={mainCursor}>
+                <div
+                    className={styles.main_cursor_background}
+                    ref={bgMainCursor}
+                ></div>
+            </div>
             <div
                 className={`${styles.secondary_cursor} `}
                 ref={secondaryCursor}
-            ></div>
-        </>
+            >
+                <div
+                    className={styles.secondary_cursor_background}
+                    ref={bgSecondaryCursor}
+                ></div>
+            </div>
+        </div>
     );
 }

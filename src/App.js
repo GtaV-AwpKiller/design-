@@ -9,9 +9,9 @@ import CustomCursor from "./components/CustomCursor/CustomCursor";
 function App() {
     return (
         <div className="App">
+            <CustomCursor />
+            <Header />
             <SmoothScroll>
-                <CustomCursor />
-                <Header />
                 <FirstSection />
                 <SecondSection />
             </SmoothScroll>
