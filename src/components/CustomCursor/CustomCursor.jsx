@@ -9,20 +9,27 @@ export default function CustomCursor() {
     const bgMainCursor = useRef(null);
     const bgSecondaryCursor = useRef(null);
 
-    bgMainCursor.current.style.transition = "all .4s ease 0s";
-
     const hoverLinks = () => {
+        bgMainCursor.current.style.transition = "all .4s ease 0s";
+        bgSecondaryCursor.current.style.transition = "all .4s ease 0s";
         const links = document.getElementsByTagName("a");
         for (let i = 0; i < links.length; i++) {
             links[i].addEventListener("mouseover", () => {
-                console.log("over");
+                console.log("LinkOver");
                 bgMainCursor.current.style.transform = "scale(2)";
+
+                bgSecondaryCursor.current.style.transform = "scale(2)";
+                bgSecondaryCursor.current.style.opacity = "0";
 
                 return;
             });
             links[i].addEventListener("mouseleave", () => {
-                console.log("leave");
+                console.log("LinkLeave");
                 bgMainCursor.current.style.transform = "scale(1)";
+
+                bgSecondaryCursor.current.style.transform = "scale(1)";
+                bgSecondaryCursor.current.style.opacity = "1";
+
                 return;
             });
         }

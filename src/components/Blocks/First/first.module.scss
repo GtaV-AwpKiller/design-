@@ -6,6 +6,7 @@
         color: white;
         display: flex;
         align-items: center;
+        perspective: 1400px;
     }
     &__content_wrapper {
         width: 100%;
@@ -15,11 +16,74 @@
         justify-content: space-between;
     }
     &__left_side {
-        width: 600px;
+        width: 540px;
         align-items: center;
-        & .sub_title {
-            margin-top: 12px;
-            opacity: 0.5;
+        perspective: 1200px;
+
+        & .title {
+            text-transform: uppercase;
+            font-size: 44px;
+            transform: translateZ(100px) translateX(0px);
+            opacity: 0;
+            animation: 1s ease-in-out 1s 1 forwards loadedTitle;
+
+            @keyframes loadedTitle {
+                0% {
+                    opacity: 1;
+                    filter: blur(10px);
+                    transform: translateZ(100px) translateX(-700px);
+                }
+                80% {
+                    opacity: 1;
+                    filter: blur(2px);
+                }
+                100% {
+                    opacity: 1;
+                    filter: blur(0px);
+                    transform: translateZ(100px) translateX(0px);
+                }
+            }
+
+            & span {
+                font-size: 54px;
+                color: #050505;
+                background-color: white;
+            }
         }
+        & .sub_title {
+            width: 440px;
+            font-size: 14px;
+            margin-top: -24px;
+            opacity: 0.5;
+            transform: translateZ(10px) translateX(-700px);
+            opacity: 0;
+            animation: 1s ease-in-out 1.4s 1 forwards loadedSubTitle;
+
+            @keyframes loadedSubTitle {
+                0% {
+                    opacity: 1;
+                    filter: blur(10px);
+                    transform: translateZ(10px) translateX(-700px);
+                }
+                80% {
+                    opacity: 1;
+
+                    filter: blur(2px);
+                }
+                100% {
+                    opacity: 1;
+                    filter: blur(0px);
+                    transform: translateZ(10px) translateX(0px);
+                }
+            }
+        }
+    }
+
+    &__right_side {
+        display: flex;
+        align-items: center;
+        width: 240px;
+        height: 240px;
+        transform: translateZ(10px);
     }
 }

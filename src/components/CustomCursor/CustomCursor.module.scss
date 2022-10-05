@@ -9,15 +9,19 @@
 }
 
 .main_cursor {
+    // mix-blend-mode: difference;
+    mix-blend-mode: exclusion;
+
     &_background {
         width: 36px;
         height: 36px;
         background-color: white;
-        border: 1px solid white;
         border-radius: 50%;
     }
 }
 .secondary_cursor {
+    mix-blend-mode: exclusion;
+
     &_background {
         width: 64px;
         height: 64px;
