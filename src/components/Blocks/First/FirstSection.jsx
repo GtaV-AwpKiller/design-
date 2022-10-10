@@ -1,9 +1,15 @@
 import React, { useEffect, useRef } from "react";
 import useWindowSize from "../../Hooks/useWindowSize";
 
+import { useDispatch, useSelector } from "react-redux";
+import { decr, incr } from "../../../redux/toolKitRed";
+
 import styles from "./first.module.scss";
 
 export default function FirstSection() {
+    const count = useSelector((state) => state.toolkit.count);
+    const dispatch = useDispatch();
+
     const wrapper = useRef();
 
     const windowSize = useWindowSize();
@@ -20,10 +26,10 @@ export default function FirstSection() {
             let tiltY = dx / cX;
 
             let radius = Math.sqrt(Math.pow(tiltX, 2) + Math.pow(tiltY / 2, 2));
-            let degree = radius * 24;
+            let degree = radius * 6;
 
             wrapper.current.style.transform = `rotate3d(${tiltX}, ${
-                -tiltY / 2
+                tiltY / 2
             }, 0, ${degree}deg)`;
         });
     }, []);
@@ -43,6 +49,21 @@ export default function FirstSection() {
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Officia unde dolores nesciunt cum, sit ratione soluta
                     </h4>
+                    <h6>Счетсчик {count}</h6>
+                    <button
+                        onClick={() => {
+                            dispatch(incr());
+                        }}
+                    >
+                        инкр
+                    </button>
+                    <button
+                        onClick={() => {
+                            dispatch(decr());
+                        }}
+                    >
+                        декр
+                    </button>
                 </div>
                 <div className={styles.first__right_side}>
                     <div className={styles.right__side_img}>
