@@ -35,16 +35,7 @@ export default function CustomCursor() {
         }
     };
 
-    const positionRef = useRef({
-        mouseX: 0,
-        mouseY: 0,
-        destX: 0,
-        destY: 0,
-        distX: 0,
-        distY: 0,
-        key: -1,
-    });
-
+    //исчезание курсора
     useEffect(() => {
         hoverLinks();
 
@@ -63,6 +54,16 @@ export default function CustomCursor() {
             secondaryCursor.current.classList.remove(`${styles.opacity}`);
         });
     }, []);
+
+    const positionRef = useRef({
+        mouseX: 0,
+        mouseY: 0,
+        destX: 0,
+        destY: 0,
+        distX: 0,
+        distY: 0,
+        key: -1,
+    });
 
     //position
     useEffect(() => {

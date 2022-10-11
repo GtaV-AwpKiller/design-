@@ -23,7 +23,7 @@ export default function reducer(state = initialState, action) {
         case ADD:
             return {
                 ...state,
-                todos: [...state.todos, action.pauload],
+                todos: [...state.todos, action.payload],
             };
         case DEL:
             return {
