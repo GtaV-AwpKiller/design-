@@ -10,17 +10,18 @@
 
 .main_cursor {
     // mix-blend-mode: difference;
-    mix-blend-mode: exclusion;
+    mix-blend-mode: difference;
 
     &_background {
         width: 36px;
         height: 36px;
+        background-clip: text, padding-box;
         background-color: white;
         border-radius: 50%;
     }
 }
 .secondary_cursor {
-    mix-blend-mode: exclusion;
+    // mix-blend-mode: exclusion;
 
     &_background {
         width: 64px;

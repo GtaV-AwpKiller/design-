@@ -24,5 +24,3 @@ export default createReducer(initialState, {
         state.todos = state.todos;
     },
 });
-
-console.log(decr);

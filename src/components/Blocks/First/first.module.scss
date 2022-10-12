@@ -6,6 +6,7 @@
         color: white;
         display: flex;
         align-items: center;
+        position: relative;
     }
     &__content_wrapper {
         width: 100%;
@@ -25,8 +26,8 @@
             text-transform: uppercase;
             font-size: 44px;
             opacity: 0;
+            position: relative;
             animation: 1.2s ease-in-out 1s 1 forwards loadedTitle;
-
             @keyframes loadedTitle {
                 0% {
                     opacity: 1;
@@ -44,7 +45,7 @@
                 }
             }
 
-            & span {
+            & span:nth-child(1) {
                 font-size: 54px;
                 color: #050505;
                 background-color: white;
@@ -106,6 +107,7 @@
         width: 50%;
         height: auto;
         transform-style: preserve-3d;
+
         & .pig {
             &__lvl_1 {
                 transform: translateZ(20px);

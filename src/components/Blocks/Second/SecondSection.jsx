@@ -9,12 +9,6 @@ export default function SecondSection() {
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Ipsam voluptate, ea fugit cupiditate deserunt beatae
                     repellendus assumenda temporibus dignissimos illum cumque
-                    eos officiis aspernatur, labore nisi modi porro nesciunt
-                    iure?Lorem ipsum dolor sit amet consectetur adipisicing
-                    elit. Ipsam voluptate, ea fugit cupiditate deserunt beatae
-                    repellendus assumenda temporibus dignissimos illum cumque
-                    eos officiis aspernatur, labore nisi modi porro nesciunt
-                    iure?
                 </p>
             </div>
         </div>

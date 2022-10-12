@@ -15,7 +15,6 @@ export default function CustomCursor() {
         const links = document.getElementsByTagName("a");
         for (let i = 0; i < links.length; i++) {
             links[i].addEventListener("mouseover", () => {
-                console.log("LinkOver");
                 bgMainCursor.current.style.transform = "scale(2)";
 
                 bgSecondaryCursor.current.style.transform = "scale(2)";
@@ -24,7 +23,6 @@ export default function CustomCursor() {
                 return;
             });
             links[i].addEventListener("mouseleave", () => {
-                console.log("LinkLeave");
                 bgMainCursor.current.style.transform = "scale(1)";
 
                 bgSecondaryCursor.current.style.transform = "scale(1)";

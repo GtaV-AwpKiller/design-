@@ -17,7 +17,6 @@ export default function FirstSection() {
             }, 2000);
         };
     };
-    console.log(todos);
 
     const dispatch = useDispatch();
 
@@ -52,8 +51,12 @@ export default function FirstSection() {
                 ref={wrapper}
             >
                 <div className={styles.first__left_side}>
-                    <h1 className={styles.title}>
-                        <span>&nbsp;Lorem,&nbsp;</span> ipsum dolor sit amet
+                    <h1
+                        className={styles.title}
+                        style={{ position: "relative" }}
+                    >
+                        <span>&nbsp;Lorem,&nbsp;</span>
+                        ipsum dolor sit amet
                     </h1>
                     <h4 className={styles.sub_title}>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
