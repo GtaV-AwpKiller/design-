@@ -6,6 +6,7 @@ import { decr, incr, add, del } from "../../../redux/toolkitSlice";
 
 import styles from "./first.module.scss";
 import pigHead from "../../../assets/FirstSection/pig.png";
+import { useScroll } from "framer-motion";
 
 export default function FirstSection() {
     const count = useSelector((state) => state.toolkit.count);
@@ -44,13 +45,18 @@ export default function FirstSection() {
         });
     }, []);
 
+    const first = useRef(null);
+    const second = useRef(null);
+
+    const { scrollY } = useScroll();
+
     return (
         <div className={styles.first__wrapper}>
             <div
                 className={`main__wrapper ${styles.first__content_wrapper}`}
                 ref={wrapper}
             >
-                <div className={styles.first__left_side}>
+                <div className={styles.first__left_side} ref={first}>
                     <h1
                         className={styles.title}
                         style={{ position: "relative" }}
@@ -115,6 +121,7 @@ export default function FirstSection() {
                 <div
                     className={styles.first__right_side}
                     style={{ position: "relative" }}
+                    ref={second}
                 >
                     <img
                         src={pigHead}

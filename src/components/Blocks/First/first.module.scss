@@ -2,7 +2,11 @@
     &__wrapper {
         width: 100vw;
         height: 100vh;
-        background: linear-gradient(50deg, #050505 50%, #753190);
+        background: linear-gradient(
+            50deg,
+            rgba(5, 5, 5, 1) 50%,
+            rgba(117, 49, 144, 1)
+        );
         color: white;
         display: flex;
         align-items: center;
@@ -113,13 +117,13 @@
                 transform: translateZ(20px);
             }
             &__lvl_2 {
-                opacity: 0.4;
+                // opacity: 0.4;
                 filter: contrast(40%) grayscale(40%);
                 transform: translateX(-30%) translateZ(-120px);
                 // transform: scale(0.9) translate3d(-200, -20, -20, -24deg);
             }
             &__lvl_3 {
-                opacity: 0.2;
+                // opacity: 0.2;
                 filter: blur(2px) contrast(20%) grayscale(20%);
                 transform: translateX(30%) translateZ(-140px);
                 // transform: scale(0.9) translate3d(-200, -20, -40, -24deg);

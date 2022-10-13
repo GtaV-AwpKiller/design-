@@ -45,7 +45,7 @@ body {
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
-    background-color: var(--background);
+    background-color: #050505;
     transition: background-color 200ms;
     cursor: none;
     /* overflow: hidden; */
@@ -120,20 +120,4 @@ input {
 .main__wrapper {
     max-width: 1440px;
     margin: 0 auto;
-}
-
-.t3d__scroll_container {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    perspective: 1500px;
-}
-.t3d__scroll_items {
-    transform-style: preserve-3d;
-    height: 100%;
-}
-.t3d_item {
-    width: 100%;
-    height: 100%;
-    position: absolute;
 }
