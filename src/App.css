@@ -36,6 +36,7 @@ ul {
 html {
     scroll-behavior: smooth;
     cursor: none;
+    /* overflow: hidden; */
 }
 /* Выставляем основные настройки по-умолчанию для body */
 body {

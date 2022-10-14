@@ -48,8 +48,6 @@ export default function FirstSection() {
     const first = useRef(null);
     const second = useRef(null);
 
-    const { scrollY } = useScroll();
-
     return (
         <div className={styles.first__wrapper}>
             <div
