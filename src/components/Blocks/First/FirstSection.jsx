@@ -11,6 +11,9 @@ import { useScroll } from "framer-motion";
 export default function FirstSection() {
     const count = useSelector((state) => state.toolkit.count);
     const todos = useSelector((state) => state.toolkit.todos);
+
+    const dispatch = useDispatch();
+
     const asyncTodo = () => {
         return async (dispatch) => {
             setTimeout(() => {
@@ -18,8 +21,6 @@ export default function FirstSection() {
             }, 2000);
         };
     };
-
-    const dispatch = useDispatch();
 
     const wrapper = useRef();
 

@@ -19,8 +19,14 @@ const toolKitSlice = createSlice({
         del(state) {
             state.todos.pop();
         },
+        validateCount(state) {
+            if (state.count < 0 || state.count > 100) {
+                return false;
+            }
+            return true;
+        },
     },
 });
 
 export default toolKitSlice.reducer;
-export const { incr, decr, add, del } = toolKitSlice.actions;
+export const { incr, decr, add, del, validateCount } = toolKitSlice.actions;
