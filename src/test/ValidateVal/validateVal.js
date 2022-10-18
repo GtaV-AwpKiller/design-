@@ -5,4 +5,4 @@ const validateVal = (val) => {
     return true;
 };
 
-module.exports = validateVal;
+export default validateVal;

@@ -1,4 +1,4 @@
-const validateVal = require("./validateVal");
+import validateVal from "./validateVal";
 
 describe("validateVal", () => {
     test("Корректное", () => {

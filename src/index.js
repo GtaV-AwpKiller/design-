@@ -2,9 +2,11 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
+import AppTest from "./App.test";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { store } from "./redux";
+import FirstSection from "./components/Blocks/First/FirstSection";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
