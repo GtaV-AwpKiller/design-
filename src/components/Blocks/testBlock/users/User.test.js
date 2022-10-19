@@ -1,6 +1,9 @@
-import { render, screen, fireEvent } from "@testing-library/react";
-import Users from "./Users";
 import axios from "axios";
+
+import { fireEvent, render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
+
+import Users from "./Users";
 
 jest.mock("axios");
 
@@ -28,7 +31,6 @@ describe("USERS TEST", () => {
     afterEach(() => {
         jest.clearAllMocks();
     });
-
     test("renders learn react link", async () => {
         axios.get.mockReturnValue(response);
         render(<Users />);

@@ -1,26 +1,23 @@
-// module.exports = {
-//     // ...
-//     // existing code goes here
-//     // ...
-
-//     module: {
-//         rules: [
-//             {
-//                 test: /\.(js|jsx)$/,
-//                 exclude: /(node_modules|bower_components)/,
-//                 loader: "babel-loader",
-//                 options: { presets: ["@babel/env", "@babel/preset-react"] },
-//             },
-//         ],
-//     },
-//     resolve: {
-//         extensions: [".ts", ".tsx", "..."],
-//     },
-//     options: {
-//         presets: [
-//             "@babel/preset-env",
-//             "@babel/react",
-//             { plugins: ["@babel/plugin-proposal-class-properties"] },
-//         ],
-//     },
-// };
+module.exports = {
+    module: {
+        loaders: [
+            { exclude: ["node_modules"], loader: "babel", test: /\.jsx?$/ },
+            { loader: "style-loader!css-loader", test: /\.css$/ },
+            { loader: "url-loader", test: /\.gif$/ },
+            { loader: "file-loader", test: /\.(ttf|eot|svg)$/ },
+        ],
+    },
+    resolve: {
+        alias: {
+            config$: "./configs/app-config.js",
+            react: "./vendor/react-master",
+        },
+        extensions: ["", "js", "jsx"],
+        modules: [
+            "node_modules",
+            "bower_components",
+            "shared",
+            "/shared/vendor/modules",
+        ],
+    },
+};
