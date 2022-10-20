@@ -1,11 +1,15 @@
-import axios from "axios";
-
+/**
+ * @jest-environment jsdom
+ */
 import { fireEvent, render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 
 import Users from "./Users";
 
-jest.mock("axios");
+import axios from "axios";
+// import * as axios from "axios";
+
+jest.mock(axios);
 
 describe("USERS TEST", () => {
     let response;
@@ -31,7 +35,7 @@ describe("USERS TEST", () => {
     afterEach(() => {
         jest.clearAllMocks();
     });
-    test("renders learn react link", async () => {
+    it("renders learn react link", async () => {
         axios.get.mockReturnValue(response);
         render(<Users />);
         const users = await screen.findAllByTestId("user-item");

@@ -1,4 +1,9 @@
+/**
+ * @jest-environment jsdom
+ */
 import React, { useEffect, useState } from "react";
+
+// import * as axios from "axios";
 import axios from "axios";
 
 const Users = () => {

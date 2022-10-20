@@ -1,9 +1,14 @@
 import React from "react";
+import { Link as LinkRoute } from "react-router-dom";
 
 import styles from "./Header.module.scss";
 
 export default function Header() {
-    const headerItem = [{ title: "MAIN" }];
+    const headerItem = [
+        { title: "LOGO", url: "#", type: "link" },
+        { title: "about", url: "about", type: "link" },
+        { title: "help", url: "help", type: "link" },
+    ];
 
     return (
         <header className={styles.header} style={{ zIndex: 1 }}>
@@ -11,13 +16,15 @@ export default function Header() {
                 <div
                     className={`main__wrapper ${styles.header__content_wrapper}`}
                 >
-                    <a id="#" href="/" className={styles.header_logo}>
+                    <LinkRoute to="/" className={styles.header_logo}>
                         LOGO
-                    </a>
+                    </LinkRoute>
                     <ul className={styles.header__menu_nav}>
                         {headerItem.map((item) => (
                             <li className={styles.menu__item}>
-                                <a href="#">{item.title}</a>
+                                <LinkRoute to={`/${item.url}`}>
+                                    {item.title}
+                                </LinkRoute>
                             </li>
                         ))}
                     </ul>
