@@ -2,26 +2,13 @@ import React, { useEffect, useRef } from "react";
 import useWindowSize from "../../Hooks/useWindowSize";
 
 import { useDispatch, useSelector } from "react-redux";
-import { decr, incr, add, del } from "../../../redux/toolkitSlice";
 
 import styles from "./first.module.scss";
 import pigHead from "../../../assets/FirstSection/pig.png";
 import { useScroll } from "framer-motion";
+import Todos from "../../todos/Todos";
 
 export default function FirstSection() {
-    const count = useSelector((state) => state.toolkit.count);
-    const todos = useSelector((state) => state.toolkit.todos);
-
-    const dispatch = useDispatch();
-
-    const asyncTodo = () => {
-        return async (dispatch) => {
-            setTimeout(() => {
-                dispatch(add(prompt()));
-            }, 2000);
-        };
-    };
-
     const wrapper = useRef();
 
     const windowSize = useWindowSize();
@@ -55,7 +42,11 @@ export default function FirstSection() {
                 className={`main__wrapper ${styles.first__content_wrapper}`}
                 ref={wrapper}
             >
-                <div className={styles.first__left_side} ref={first}>
+                <div
+                    data-testid="mainPage"
+                    className={styles.first__left_side}
+                    ref={first}
+                >
                     <h1
                         className={styles.title}
                         style={{ position: "relative" }}
@@ -67,55 +58,7 @@ export default function FirstSection() {
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Officia unde dolores nesciunt cum, sit ratione soluta
                     </h4>
-
-                    <div className={styles.under_title}>
-                        <h3 className={styles.under__title_counter}>
-                            Счетсчик {count}
-                        </h3>
-                        <div className={styles.under_buttons}>
-                            <button
-                                onClick={() => {
-                                    dispatch(incr());
-                                }}
-                            >
-                                инкр
-                            </button>
-                            <button
-                                onClick={() => {
-                                    dispatch(decr());
-                                }}
-                            >
-                                декр
-                            </button>
-                            <button
-                                onClick={() => {
-                                    dispatch(add(prompt()));
-                                }}
-                            >
-                                добавить
-                            </button>
-                            <button
-                                onClick={() => {
-                                    dispatch(del());
-                                }}
-                            >
-                                удалить последний
-                            </button>
-                            <button
-                                onClick={() => {
-                                    dispatch(asyncTodo());
-                                }}
-                            >
-                                async add todo
-                            </button>
-                        </div>
-
-                        <ul>
-                            {todos.map((item) => (
-                                <li key={item}>{item}</li>
-                            ))}
-                        </ul>
-                    </div>
+                    <Todos />
                 </div>
                 <div
                     className={styles.first__right_side}

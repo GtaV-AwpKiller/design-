@@ -10,6 +10,7 @@ import axios from "axios";
 // import * as axios from "axios";
 
 jest.mock(axios);
+jest.mock("./Users", () => <Users />);
 
 describe("USERS TEST", () => {
     let response;
@@ -32,15 +33,18 @@ describe("USERS TEST", () => {
         };
     });
 
-    afterEach(() => {
-        jest.clearAllMocks();
-    });
-    it("renders learn react link", async () => {
+    test("renders learn react link", async () => {
         axios.get.mockReturnValue(response);
-        render(<Users />);
+        // const element = document.createElement("./Users");
+        render("./Users");
         const users = await screen.findAllByTestId("user-item");
         expect(users.length).toBe(3);
         expect(axios.get).toBeCalledTimes(1);
         screen.debug();
+    });
+    afterEach(cleanup);
+
+    afterEach(() => {
+        jest.clearAllMocks();
     });
 });

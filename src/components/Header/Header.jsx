@@ -5,9 +5,9 @@ import styles from "./Header.module.scss";
 
 export default function Header() {
     const headerItem = [
-        { title: "LOGO", url: "#", type: "link" },
-        { title: "about", url: "about", type: "link" },
-        { title: "help", url: "help", type: "link" },
+        { title: "LOGO", url: "#", type: "link", testid: "main-link" },
+        { title: "about", url: "about", type: "link", testid: "main-about" },
+        { title: "help", url: "help", type: "link", testid: "help-link" },
     ];
 
     return (
@@ -22,7 +22,10 @@ export default function Header() {
                     <ul className={styles.header__menu_nav}>
                         {headerItem.map((item) => (
                             <li className={styles.menu__item}>
-                                <LinkRoute to={`/${item.url}`}>
+                                <LinkRoute
+                                    data-testid={item.testid}
+                                    to={`/${item.url}`}
+                                >
                                     {item.title}
                                 </LinkRoute>
                             </li>

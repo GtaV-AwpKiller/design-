@@ -8,4 +8,7 @@ const rootReducer = combineReducers({
 
 export const store = configureStore({
     reducer: rootReducer,
+    // preloadedState: {
+    //     count: 100,
+    // },
 });
