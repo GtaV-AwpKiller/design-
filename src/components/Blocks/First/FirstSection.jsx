@@ -58,7 +58,7 @@ export default function FirstSection() {
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Officia unde dolores nesciunt cum, sit ratione soluta
                     </h4>
-                    <Todos />
+                    {/* <Todos /> */}
                 </div>
                 <div
                     className={styles.first__right_side}
