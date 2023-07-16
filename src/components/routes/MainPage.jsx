@@ -9,8 +9,7 @@ function MainPage() {
     const page = useRef(null);
     const frameItem1 = useRef();
     const frameItem2 = useRef();
-    let $frames = document.getElementsByClassName(".frame"),
-        frames = [],
+    let frames = [],
         zSpacing = -1500,
         startPos = zSpacing / 5,
         zVal = [],
@@ -20,22 +19,12 @@ function MainPage() {
         frames.push(frameItem1.current, frameItem2.current);
 
         window.onscroll = () => {
-            // if (window.scrollY >= 1 && window.scrollY <= 318) {
-            //     window.scrollTo(318, 318);
-            // }
-            // if (window.scrollY >= 320) {
-            //     window.scrollTo(1, 1);
-            // }
-
-            // window.scrollTo(318, 318);
-            // console.log(window.scrollY);
-
             zPosition = document.documentElement.scrollTop;
             let delta = startPos - zPosition; // отнимаем от позиции блока Z ось
             startPos = zPosition; // обновляем позицию
 
             frames.forEach((elem, i) => {
-                zVal.push(i * zSpacing + zSpacing); // для каждного элемента даём умноженный zSpasing и плюсуем простарнство между
+                zVal.push(i * zSpacing + zSpacing); // для каждного элемента даём zSpasing и плюсуем простарнство между
                 zVal[i] += delta * -5; // скорость пролистывания
                 let frame = frames[i],
                     transform = `translateZ(${zVal[i]}px)`,
@@ -61,35 +50,7 @@ function MainPage() {
         height: "100%",
         position: "absolute",
         transition: ".8s ",
-
-        // width: "160vw",
     };
-
-    // const [scrollUp, setScrollUp] = useState();
-    // const [scrollDown, setScrollDown] = useState();
-
-    // setScrollUp(window.moveTo(0, 250));
-    // setScrollDown(window.moveTo(0, 250));
-
-    // const page = document.getElementsByClassName("App");
-
-    // console.log(lol);
-    // useEffect(() => {
-    //     // page = addEventListener("mousedown", scrollDown, false);
-    //     // page = removeEventListener("mousedown", scrollDown, true);
-    // }, []);
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         const onScrollDown = (e) => {
-    //             setTimeout(() => {
-    //                 console.log(e);
-    //             }, 1000);
-    //         };
-    //         window.addEventListener("scroll", onScrollDown);
-    //         // window.scrollTo(0, 265);
-    //         window.removeEventListener("scroll", onScrollDown);
-    //     }, 1000);
-    // }, []);
 
     return (
         <div className="App" ref={page}>
@@ -118,7 +79,6 @@ function MainPage() {
                     </div>
                 </div>
             </div>
-            {/* </SmoothScroll> */}
         </div>
     );
 }

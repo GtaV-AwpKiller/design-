@@ -27,6 +27,7 @@ figcaption,
 blockquote,
 dl,
 dd {
+    cursor: none;
     margin: 0;
 }
 ul {
@@ -36,45 +37,36 @@ ul {
 html {
     scroll-behavior: smooth;
     cursor: none;
-    /* overflow: hidden; */
 }
-/* Выставляем основные настройки по-умолчанию для body */
 body {
-    /* min-height: 100vh; */
     min-height: 5000px;
-    height: 5000px;
     scroll-behavior: smooth;
     text-rendering: optimizeSpeed;
     line-height: 1.5;
-    background-color: #050505;
+    background-color: black;
     transition: background-color 200ms;
     cursor: none;
-    /* overflow: hidden; */
+    font-family: "Gropled";
 }
 
-/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
 ul[class],
 ol[class] {
     list-style: none;
 }
 
-/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
 a:not([class]) {
     text-decoration-skip-ink: auto;
 }
 
-/* Упрощаем работу с изображениями */
 img {
     max-width: 100%;
     display: block;
 }
 
-/* Указываем понятную периодичность в потоке данных у article*/
 article > * + * {
     margin-top: 1em;
 }
 
-/* Наследуем шрифты для инпутов и кнопок */
 input,
 button,
 textarea,
@@ -102,7 +94,6 @@ input {
     width: 0;
 }
 
-/*Убрать полосу прокрутки для всей страницы*/
 ::-webkit-scrollbar {
     width: 0;
 }
@@ -110,4 +101,9 @@ input {
 .main__wrapper {
     max-width: 1440px;
     margin: 0 auto;
+}
+
+canvas {
+    display: block;
+    background: black;
 }
